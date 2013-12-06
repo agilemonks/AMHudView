@@ -35,6 +35,9 @@
 @property (nonatomic, copy) void (^cancelBlock)(AMHudView*);
 @property (nonatomic, getter = isProgressDeterminate) BOOL progressDeterminate;
 
+//convience initializer
+-(instancetype)initWithLabelText:(NSString*)text;
+
 -(void)showOverView:(UIView*)view;
 -(void)hide;
 @end

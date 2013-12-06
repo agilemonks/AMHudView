@@ -72,6 +72,13 @@ const SInt32 kVertBuffer = 8;
 	return self;
 }
 
+-(instancetype)initWithLabelText:(NSString*)text
+{
+	if ((self = [self init])) {
+		self.mainLabelText = text;
+	}
+	return self;
+}
 
 -(void)updateConstraints
 {
