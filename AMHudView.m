@@ -42,6 +42,18 @@ const SInt32 kVertBuffer = 8;
 
 @implementation AMHudView
 
++(instancetype)HudVisibleInView:(UIView*)view
+{
+	__block AMHudView *theView;
+	[view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		if ([obj isKindOfClass:[AMHudView class]]) {
+			theView = obj;
+			*stop = YES;
+		}
+	}];
+	return theView;
+}
+
 +(BOOL)requiresConstraintBasedLayout { return YES; }
 
 -(instancetype)init

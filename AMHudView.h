@@ -26,6 +26,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AMHudView : UIView
+
++(instancetype)HudVisibleInView:(UIView*)view;
+
 @property (nonatomic, copy) NSString *mainLabelText;
 @property (nonatomic, strong) UIColor *cancelColor; //tintColor for cancel button
 @property (nonatomic) CGFloat progressValue; //0 to 1.0
