@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AMViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rb1-Li-mNU"/>
+                        <viewControllerLayoutGuide type="bottom" id="zgp-fc-Up7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zky-Nk-3UZ">
+                                <rect key="frame" x="343" y="28" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Basic Demo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showBasic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lHE-va-5fp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ca-KV-YpU">
+                                <rect key="frame" x="338" y="66" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel Demo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showBasicCancelable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yg9-om-QNs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6c-H5-pXE">
+                                <rect key="frame" x="320" y="104" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Determinate Demo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showDeterminite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IFf-p1-w9k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="api-2V-KmN">
+                                <rect key="frame" x="294" y="142" width="181" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel Determinate Demo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showCancelableDeterminite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bhU-ty-Db5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="api-2V-KmN" firstAttribute="top" secondItem="g6c-H5-pXE" secondAttribute="bottom" constant="8" id="3Ah-KU-Ybf"/>
+                            <constraint firstAttribute="centerX" secondItem="api-2V-KmN" secondAttribute="centerX" id="Coj-gu-3H1"/>
+                            <constraint firstAttribute="centerX" secondItem="g6c-H5-pXE" secondAttribute="centerX" id="T7y-uj-kUd"/>
+                            <constraint firstAttribute="centerX" secondItem="Zky-Nk-3UZ" secondAttribute="centerX" id="TH5-su-f2Z"/>
+                            <constraint firstItem="Zky-Nk-3UZ" firstAttribute="top" secondItem="rb1-Li-mNU" secondAttribute="bottom" constant="20" symbolic="YES" id="egp-BL-Lsl"/>
+                            <constraint firstAttribute="centerX" secondItem="9Ca-KV-YpU" secondAttribute="centerX" id="fbX-eo-KbD"/>
+                            <constraint firstItem="g6c-H5-pXE" firstAttribute="top" secondItem="9Ca-KV-YpU" secondAttribute="bottom" constant="8" id="uMY-qC-r82"/>
+                            <constraint firstItem="9Ca-KV-YpU" firstAttribute="top" secondItem="Zky-Nk-3UZ" secondAttribute="bottom" constant="8" id="wDY-vq-dA2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
