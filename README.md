@@ -1,5 +1,7 @@
 # AMHudView
 
+![Example HUDs](examples.png)
+
 I've been using [MBProgressHUD](https://github.com/jdg/MBProgressHUD) for a few years but finally hit the point where the API was getting in my way. So I started this project.
 
 The main benefits of using AMHudView are:
