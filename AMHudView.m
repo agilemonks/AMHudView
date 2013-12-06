@@ -54,6 +54,11 @@ const SInt32 kVertBuffer = 8;
 	return theView;
 }
 
++(instancetype)hudWithLabelText:(NSString *)text
+{
+	return [[self alloc] initWithLabelText:text];
+}
+
 +(BOOL)requiresConstraintBasedLayout { return YES; }
 
 -(instancetype)init

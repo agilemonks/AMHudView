@@ -37,6 +37,7 @@
 
 //convience initializer
 -(instancetype)initWithLabelText:(NSString*)text;
++(instancetype)hudWithLabelText:(NSString*)text;
 
 -(void)showOverView:(UIView*)view;
 -(void)hide;
