@@ -68,6 +68,7 @@ const SInt32 kVertBuffer = 8;
 		self.mainLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		self.mainLabel.translatesAutoresizingMaskIntoConstraints = NO;
 		self.mainLabel.textColor = [UIColor whiteColor];
+		self.mainLabel.textAlignment = NSTextAlignmentCenter;
 		[self addSubview:self.mainLabel];
 		self.alpha = 0;
 		self.backgroundColor = [UIColor blackColor];
@@ -103,14 +104,14 @@ const SInt32 kVertBuffer = 8;
 		[self.cancelButton addTarget:self action:@selector(cancelOperation:) forControlEvents:UIControlEventTouchUpInside];
 		viewsDict = @{@"mainLabel":self.mainLabel, @"cancelButton":self.cancelButton, @"progress":theProgView};
 		[self addConstraint:[NSLayoutConstraint constraintWithItem:self.cancelButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[cancelButton]-|" options:0 metrics:nil views:viewsDict]];
-		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[progress]-[cancelButton]" options:0 metrics:nil views:viewsDict]];
+		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[progress]-[cancelButton]-|" options:0 metrics:nil views:viewsDict]];
 	} else {
 		viewsDict = @{@"mainLabel":self.mainLabel, @"progress":theProgView};
 		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[progress]-|" options:0 metrics:nil views:viewsDict]];
 	}
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[mainLabel]" options:0 metrics:nil views:viewsDict]];
-	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.mainLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[mainLabel]-|" options:0 metrics:nil views:viewsDict]];
+//	[self addConstraint:[NSLayoutConstraint constraintWithItem:self.mainLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self addConstraint:[NSLayoutConstraint constraintWithItem:theProgView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[mainLabel]-[progress]" options:0 metrics:nil views:viewsDict]];
 	
@@ -119,7 +120,9 @@ const SInt32 kVertBuffer = 8;
 		[self addConstraint:[NSLayoutConstraint constraintWithItem:theProgView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	}
 	
-	self.widthConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1 constant:400];
+	//was clipping mainlabel on 7.1, but fine on 8.0. adding this worked on both
+	CGFloat width = 20 + MAX(self.mainLabel.intrinsicContentSize.width, 200);
+	self.widthConstraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1 constant:width];
 	[self addConstraint:self.widthConstraint];
 	[self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 	[self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
@@ -127,12 +130,6 @@ const SInt32 kVertBuffer = 8;
 	[super updateConstraints];
 }
 
--(void)layoutSubviews
-{
-	[super layoutSubviews];
-	self.widthConstraint.constant = MAX(self.mainLabel.bounds.size.width+60, 100);
-	[super layoutSubviews];
-}
 -(void)showOverView:(UIView *)view
 {
 	if (self.progressDeterminate) {
